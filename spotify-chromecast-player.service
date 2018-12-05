@@ -1,0 +1,17 @@
+[Unit]
+Description=Spotify Chromecast player
+After=network.target syslog.target
+
+[Service]
+Environment=DEVICE_NAME=
+Environment=DEVICE_HOST=
+Environment=SPOTIFY_USERNAME=
+Environment=SPOTIFY_PASSWORD=
+WorkingDirectory=/opt/spotify-chromecast-player
+ExecStart=/usr/bin/npm start
+Restart=on-failure
+User=nobody
+Group=nogroup
+
+[Install]
+WantedBy=default.target
