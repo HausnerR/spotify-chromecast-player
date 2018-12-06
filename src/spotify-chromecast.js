@@ -1,4 +1,3 @@
-var mdns = require('mdns');
 var Client = require('castv2-client').Client;
 var Spotify = require('./cast-sender/Spotify');
 var SpotifyWebApi = require('spotify-web-api-node');
@@ -42,32 +41,8 @@ exports.play = function (uri) {
         if (DEVICE_HOST) {
             ondeviceup(DEVICE_HOST, DEVICE_NAME);
         } else {
-            //fix for raspberry: https://stackoverflow.com/a/36605224/1937797
-            var sequence = [
-                mdns.rst.DNSServiceResolve(),
-                'DNSServiceGetAddrInfo' in mdns.dns_sd ? mdns.rst.DNSServiceGetAddrInfo() : mdns.rst.getaddrinfo({families: [4]}),
-                mdns.rst.makeAddressesUnique()
-            ];
-
-            var browser = mdns.createBrowser(mdns.tcp('googlecast'), {resolverSequence: sequence});
-
-            var browserTimeout = setTimeout(function () {
-                console.log('Chromecast search timeout. Couldn\'t find device ' + DEVICE_NAME);
-                browser.stop();
-                reject();
-            }, 10000);
-
-            browser.on('serviceUp', function (service) {
-                console.log('Found Chromecast "' + service.txtRecord.fn + '"');
-
-                if (service.txtRecord.fn === DEVICE_NAME) {
-                    ondeviceup(service.addresses[0], service.txtRecord.fn);
-                    browser.stop();
-                    clearTimeout(browserTimeout);
-                }
-            });
-
-            browser.start();
+            console.error('No Chromecast device specified in env variables!');
+            reject();
         }
 
         function ondeviceup(host, device_name) {

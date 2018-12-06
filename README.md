@@ -31,12 +31,9 @@ http://localhost:3000/pause/cancel
 
 ## Prerequisites
 
-- node.js 6.x
-- libavahi
+- node.js 6.x or newer
+- git
 
-```
-sudo apt-get install libavahi-compat-libdnssd-dev
-```
 
 
 ## How to start
