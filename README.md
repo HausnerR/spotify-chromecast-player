@@ -32,11 +32,15 @@ http://localhost:3000/pause/cancel
 ## Prerequisites
 
 - node.js 6.x
+- git
+- native compile tools
 - libavahi
 
 ```
-sudo apt-get install libavahi-compat-libdnssd-dev
+sudo apt-get install git gcc g++ make libavahi-compat-libdnssd-dev
 ```
+
+Check out branch `no-autodiscovery` for code without libavahi dependency (no other native deps).
 
 
 ## How to start
