@@ -31,7 +31,7 @@ http://localhost:3000/pause/cancel
 
 ## Prerequisites
 
-- node.js 6.x
+- node.js 6.x or newer
 - git
 - native compile tools
 - libavahi
