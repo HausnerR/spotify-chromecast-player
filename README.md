@@ -35,7 +35,6 @@ http://localhost:3000/pause/cancel
 - git
 
 
-
 ## How to start
 
 Install dependencies:
@@ -56,7 +55,13 @@ export SPOTIFY_PASSWORD=...
 Start the app:
 
 ```
-npm start
+npm run server
+```
+
+or
+
+```
+npm run play
 ```
 
 
