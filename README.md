@@ -63,7 +63,13 @@ export SPOTIFY_PASSWORD=...
 Start the app:
 
 ```
-npm start
+npm run server
+```
+
+or
+
+```
+npm run play
 ```
 
 

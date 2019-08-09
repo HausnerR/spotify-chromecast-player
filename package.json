@@ -6,7 +6,8 @@
   "author": "Jakub Pachciarek",
   "license": "MIT",
   "scripts": {
-    "start": "node src/index.js"
+    "server": "node src/http-server.js",
+    "play": "node src/play.js"
   },
   "dependencies": {
     "castv2-client": "^1.2.0",
