@@ -73,11 +73,19 @@ exports.play = function (uri) {
         function ondeviceup(host, device_name) {
             var client = new Client();
 
+            /*client.on('status', function(status) {
+                console.log('client status: ', status);
+            });*/
+
             console.log('Connecting to "' + device_name + '"...');
             client.connect(host, function () {
                 console.log('Launching Spotify app on "' + device_name + '"...');
                 client.launch(Spotify, function (err, controller) {
                     var spotifyApi;
+
+                    /*controller.on('close', function(status) {
+                        console.log('controller close: ', status);
+                    });*/
 
                     console.log('Logging to Spotify...');
                     SpotifyAccessToken.getAccessToken(SPOTIFY_USERNAME, SPOTIFY_PASSWORD)
